@@ -15,7 +15,8 @@ out = ""
 # Generate random numbers from
 # Do NOT TOUCH THIS CODE! It works, and as long as it works you shouldnt even get close to it.
 mouse = [pos for pos in util.captureRandomMouse(1000)]
-seed = ''.join([(str(i[0]+i[1])[-1:]) for i in mouse])
+rand = ''.join([(str(i[0]+i[1])[-1:]) for i in mouse])
 print()
 
-print(util.hashPasses(seed, 10000000))
+seed = util.hashPasses(rand, 1000000, 0)
+print(util.createPass(seed, 5))

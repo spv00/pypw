@@ -2,6 +2,7 @@ import pyautogui
 import hashlib
 import progressbar
 import random
+import string
 
 def captureMouse(iterations):
     lastPos = pyautogui.position()
@@ -22,7 +23,7 @@ def captureRandomMouse(iterations):
         bar.update(i)
         yield pos
 
-def hashPasses(hash: str, passes):
+def hashPasses(hash: str, passes, index):
     hash = hash.strip().encode()
     algs = {
         'md5' : hashlib.md5,
@@ -31,7 +32,7 @@ def hashPasses(hash: str, passes):
     }
     
     i = 0
-    widgets = [f"Hashing please wait:", progressbar.Bar()]
+    widgets = [f"Hashing pass {index} please wait:", progressbar.Bar()]
     bar = progressbar.ProgressBar(widgets=widgets, maxval=passes).start()
     for i in range(passes):
         name, hashalgo = random.choice(list(algs.items()))
@@ -42,3 +43,11 @@ def hashPasses(hash: str, passes):
     print()
     
     return str(hash)
+
+def createPass(seed, length):
+    out = ""
+    for i in range(length):
+        seed = hashPasses(seed, 100000, i + 1)
+        random.seed(seed)
+        out += random.choice(string.ascii_letters + string.punctuation + string.digits)
+    return out
