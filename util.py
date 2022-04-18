@@ -32,7 +32,7 @@ def hashPasses(hash: str, passes, index):
     }
     
     i = 0
-    widgets = [f"Hashing pass {index} please wait:", progressbar.Bar()]
+    widgets = [f"Hashing pass {index} please wait:", progressbar.Bar(), progressbar.AdaptiveETA()]
     bar = progressbar.ProgressBar(widgets=widgets, maxval=passes).start()
     for i in range(passes):
         name, hashalgo = random.choice(list(algs.items()))
@@ -47,7 +47,7 @@ def hashPasses(hash: str, passes, index):
 def createPass(seed, length):
     out = ""
     for i in range(length):
-        seed = hashPasses(seed, 100000, i + 1)
+        seed = hashPasses(seed, 1000000, i + 1)
         random.seed(seed)
         out += random.choice(string.ascii_letters + string.punctuation + string.digits)
     return out
