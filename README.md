@@ -5,5 +5,4 @@ This has no usecase whatsoever but i still made it
 
 ## No dependencies
 Except for python 3.10 (duh)
-The rest should be in the virtual environment
-If not, that sucks
+Use the minified version (sadly only on linux for now) with 0 dependencies
