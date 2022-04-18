@@ -9,5 +9,7 @@ Use the minified version (sadly only on linux for now) with 0 dependencies
 
 ## Direct execution
 To execute without any dependencies, libraries or additional files needed with curl or wget:
+
 `curl https://raw.githubusercontent.com/spv00/pypw/master/mini.py | python3 <args>`
+
 `wget https://raw.githubusercontent.com/spv00/pypw/master/mini.py -O - | python3 <args>`
