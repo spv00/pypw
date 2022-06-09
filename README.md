@@ -7,6 +7,10 @@ This has no usecase whatsoever but i still made it
 Except for python 3.10 (duh)
 Use the minified version (sadly only on linux for now) with 0 dependencies
 
+## Usage
+Currently you can only specify the length of the password (26 bytes by default)
+`python3 pypw.py <length>`
+
 ## Direct execution
 To execute without any dependencies, libraries or additional files needed with curl or wget:
 
